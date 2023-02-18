@@ -1,0 +1,12 @@
+<%- include('partials/header') %>
+<% for (var i=0;i<questions.length;i++) { %>
+    <div clas = "container" >
+        <h1> Question <%= i+1 %> </h1>
+        <a href = "/posts/<%=questions[i].id%>"> <%- questions[i].title %> </a> <br>
+        <% var Tags = questions[i].tags.split(">") %>
+        <% for (var j=0;j<Tags.length - 1;j++) {  var str = Tags[j].substr(1,Tags[j].length); %>
+        <button> <a href = '/tags/<%=str%>'> <%= str %> </a> </button>
+        <% } %>
+    </div>
+<% } %>
+<%- include('partials/footer') %>
